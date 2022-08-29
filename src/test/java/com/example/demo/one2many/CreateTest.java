@@ -36,12 +36,14 @@ public class CreateTest {
 		infect.getVaccines().add(v2);
 		infect.getVaccines().add(v3);
 		
-		// 執行非聯級保存操作
+		// 執行非聯集保存操作
 		vaccineRepository.save(v1);
 		vaccineRepository.save(v2);
 		vaccineRepository.save(v3);
 		
 		infectRepository.save(infect);
 		
+		// 也可以 執行聯集保存操作(casecade) 那就可以只要新增 傳染病就好
+		// infectRepository.save(infect);
 	}
 }

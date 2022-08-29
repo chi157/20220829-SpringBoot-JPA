@@ -18,8 +18,9 @@ public class Manager {
 	@Column(nullable = false, length = 50)
 	private String name;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "manager")
 	private Manager manager; // 兩邊都要有 one 2  one 才算真的 一對一
+	// mappedBy 不維護關聯關係，而由 Department 的 manager 來維護關聯關係
 	
 	public Long getId() {
 		return id;

@@ -20,7 +20,8 @@ public class Department {
 	@Column(nullable = false, length = 50)
 	private String name;
 	
-	@OneToOne(cascade = CascadeType.ALL) // 雙向關係需要使用聯級新增
+	//@OneToOne(cascade = {CascadeType.REFRESH, CascadeType.REMOVE}) // 一起新增一起刪除
+	@OneToOne(cascade = CascadeType.ALL) // 雙向關係需要使用聯級新增 // 一對一適合用 all 所有事情都一起
 	@JoinColumn(name = "manager_id")
 	private Manager manager;
 

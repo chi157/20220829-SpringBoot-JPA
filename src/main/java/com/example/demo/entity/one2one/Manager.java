@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +18,9 @@ public class Manager {
 	@Column(nullable = false, length = 50)
 	private String name;
 	
-
+	@OneToOne
+	private Manager manager; // 兩邊都要有 one 2  one 才算真的 一對一
+	
 	public Long getId() {
 		return id;
 	}
@@ -32,6 +35,14 @@ public class Manager {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
 	

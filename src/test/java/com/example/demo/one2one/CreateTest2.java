@@ -31,6 +31,8 @@ public class CreateTest2 {
 		
 		departmentRepository.save(department);
 		
+		// 這個 test2 不夠強烈的一對一 要改成聯級新增
+		
 	}
 	
 }

@@ -14,7 +14,7 @@ import com.example.demo.repository.MenuItemRepository;
 import com.example.demo.repository.VaccineRepository;
 
 @SpringBootTest
-public class CreateTest2 {
+public class CreateTest2_2 {
 	@Autowired
 	MenuGroupRepository menuGroupRepository;
 	
@@ -24,19 +24,20 @@ public class CreateTest2 {
 	@Test
 	public void test() {
 		MenuGroup g = new MenuGroup();
-		g.setName("一號餐");
+		g.setName("二號餐");
 		
 		MenuItem m1 = new MenuItem();
-		m1.setName("可樂");
-		m1.setPrice(20);
+		m1.setName("紅茶");
+		m1.setPrice(15);
 		
 		MenuItem m2 = new MenuItem();
-		m2.setName("漢堡");
-		m2.setPrice(35);
+		m2.setName("可頌");
+		m2.setPrice(40);
 		
 		// 設置關聯關係
-		g.getItems().add(m1);
-		g.getItems().add(m2);
+		// 因為在 1 的一方有設定 mappedBy 所以下面兩行可以不用撰寫 但是要寫也可以啦
+		//g.getItems().add(m1);
+		//g.getItems().add(m2);
 		m1.setMenuGroup(g);
 		m2.setMenuGroup(g);
 		

@@ -22,22 +22,14 @@ public class Customer {
 	
 	@Column
 	private String name;
-	
-	@Column(columnDefinition = "Integer DEFAULT 18")
-	private Integer age;
-	
-	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-	@Temporal(TemporalType.TIMESTAMP) // 存放的格式： 時間(TIME), 日期(DATE), 時間+日期(TIMESTAMP)
-	private Date create = new Date();
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(String name, Integer age) {
+	public Customer(String name) {
 		super();
 		this.name = name;
-		this.age = age;
 	}
 
 	public Long getId() {
@@ -56,25 +48,9 @@ public class Customer {
 		this.name = name;
 	}
 
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-
-	public Date getCreate() {
-		return create;
-	}
-
-	public void setCreate(Date create) {
-		this.create = create;
-	}
-
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", age=" + age + ", create=" + create + "]";
+		return "Customer [id=" + id + ", name=" + name +  "]";
 	}
 	
 	

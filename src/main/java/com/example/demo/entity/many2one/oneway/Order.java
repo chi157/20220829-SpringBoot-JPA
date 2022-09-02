@@ -24,6 +24,15 @@ public class Order {
 	@ManyToOne
 	private Customer customer;
 
+	public Order() {
+		super();
+	}
+
+	public Order(String name) {
+		super();
+		this.name = name;
+	}
+
 	public Long getId() {
 		return id;
 	}

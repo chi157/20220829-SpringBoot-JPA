@@ -1,4 +1,4 @@
-package com.example.demo.entity.one2many;
+package com.example.demo.entity.one2many.oneway;
 // Vaccine 疫苗
 
 import javax.persistence.Column;

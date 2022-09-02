@@ -1,4 +1,4 @@
-package com.example.demo.entity.one2many;
+package com.example.demo.entity.one2many.oneway;
 // Infect 傳染病
 
 import java.util.LinkedHashSet;

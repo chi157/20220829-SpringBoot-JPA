@@ -22,7 +22,7 @@ public class MenuGroup {
 	private String name;
 	
 	// 雙向一對多
-	// 1 的 一方必須使用 mappedBy 來放棄維護關聯關係
+	// 1 的 一方必須使用 mappedBy 來放棄維護關聯關係 如此也不用 @JoinColumn
 	@OneToMany(mappedBy = "manuGroup")
 	private Set<MenuItem> items = new LinkedHashSet<>();
 

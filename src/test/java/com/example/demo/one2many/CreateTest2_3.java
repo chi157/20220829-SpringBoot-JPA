@@ -1,5 +1,7 @@
 package com.example.demo.one2many;
 
+import javax.persistence.CascadeType;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,14 +37,15 @@ public class CreateTest2_3 {
 		m2.setPrice(45);
 		
 		// 設置關聯關係
-		// 因為在 1 的一方有設定 mappedBy 所以下面兩行可以不用撰寫 但是要寫也可以啦
-		//g.getItems().add(m1);
-		//g.getItems().add(m2);
+		// 聯集新增的話 g.getItems().add(？); 要加入
+		g.getItems().add(m1);
+		g.getItems().add(m2);
 		m1.setMenuGroup(g);
 		m2.setMenuGroup(g);
 		
-		// 執行保存動作
+		// 執行保存動作 (聯集新增,1的一方與多的一方都會被新增)
 		// 我要只有 insert group 可以連同裡面的 item 都一起新增
+		// 在 MenuGroup 1 的一方加上 cascade = CascadeType.PERSIST
 		menuGroupRepository.save(g);
 	}
 }

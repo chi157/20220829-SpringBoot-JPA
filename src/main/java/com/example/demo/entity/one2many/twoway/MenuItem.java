@@ -2,6 +2,7 @@ package com.example.demo.entity.one2many.twoway;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,8 @@ public class MenuItem {
 	
 	// 雙向多對一
 	@JoinColumn(name = "group_id")
-	@ManyToOne
+	//@ManyToOne // 沒寫 fetch= 預設是 FetchType.EAGER 這樣的話假如我今天查 一個 item 系統會幫你查對應的 group 所以會查兩張表
+	@ManyToOne(fetch = FetchType.LAZY) // 只會查一張表 如果sql 搜尋不只一張表就會壞掉
 	private MenuGroup menuGroup;
 
 	public Long getId() {
